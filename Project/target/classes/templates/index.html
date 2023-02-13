@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<title>Add Students</title>
+<style>     
+body{
+    background-image:url("2.jpg");
+    background-size:cover;
+    background-repeat:repeat;
+    background-color:white;
+    font-size:150%;
+    color:black;
+    
+    
+}
+ h1 {
+        color: green;
+    }
+     
+ 
+label{
+    float:left;
+    padding-left:30%;
+  font-size:115%;
+  color:black;
+    width:30%;
+}
+.content1
+{
+    width:50%;
+    
+    float:right;
+}
+.full{
+    width:100%;
+    
+}
+.part
+{
+    width:100%;
+    float:left;
+}
+.button{
+	background-color:#36AD0C;
+	font-size:20px;
+	border:none;
+	border-radius:10px;
+	color:white;
+	padding:8px 35px;
+	margin-right:30px;
+	-webkit-transition-duration:0.4s;
+	transition-duration:0.4s;
+}
+
+.button:hover{
+	cursor:pointer;
+	background-color:#1B5D04;
+	color:white;
+}
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 10px;
+} </style>
+<form action="user">
+ <input type="submit" class="button" name="back" value="Back"></form>
+	
+ <h3 align="center" color="red">Student Registration</h3>  	   
+</head>
+<body>
+	<hr>
+	<marquee action="left"><p style="color:red;" th:text="${error}"/></marquee>
+	<center>
+	<form action="upload" method="post"enctype="multipart/form-data" id="form">
+		<label>Id : </label><input type="number" name="id" required><br><br>
+		<label>Name : </label><input type="text" name="name" required><br><br>
+		<label>Father's Name : </label><input type="text" name="fatherName" required><br><br>
+		<label>Date Of Birth : </label><input type="date" name="dob" required><br><br>
+		<label>Age : </label><input type="number" name="age" required><br><br>
+		<label> Gender : </label>
+		<input type="radio" name="gender" value="male" placeholder="Male"/>Male
+		<input type="radio" name="gender" value="female" placeholder="Female"/>Female<br><br>
+		<label>Address : </label><input type="text" name="address" maxlength="50" required><br><br>
+		<label>Contact No. : </label><input type="number" min="1000000000" max="9999999999" name="mobileNo" required><br><br>
+		<label>Degree/Department : </label>
+		<select name="degree" >
+		<option value="B.Sc/Maths">B.Sc/Maths</option>
+		<option value="B.Sc/Physics">B.Sc/Physics</option>
+		<option value="B.Sc/Chemistry">B.Sc/Chemistry</option>
+		<option value="B.Sc/Computer Science">B.Sc/Computer Science</option>
+		<option value="B.Sc/Zoology">B.Sc/Zoology</option>
+		<option value="B.Sc/Botony">B.Sc/Botony</option>
+		<option value="B.A/English">B.A/English</option>
+		<option value="B.A/Economics">B.A/Economics</option>
+		<option value="MCA">MCA</option>
+		<option value="M.Sc/Computer Science">M.Sc/Computer Science</option>
+		<option value="M.Sc/Maths">M.Sc/Maths</option>
+		<option value="M.Sc/Physics">M.Sc/Physics</option>
+		<option value="M.Sc/Chemistry">M.Sc/Chemistry</option>
+		<option value="M.Sc/Zoology">M.Sc/Zoology</option>
+		<option value="M.Sc/Botony">M.Sc/Botony</option>
+		<option value="M.A/English">M.A/English</option>
+		<option value="M.A/Economics">M.A/Economics</option>
+		</select><br><br><br>
+		
+		<label>Sport : </label>
+		<select  name="game" >
+		<option value="Hockey">Hockey</option>
+		<option value="FootBall">FootBall</option>
+		<option value="Cricket">Cricket</option>
+		<option value="VolleyBall">VolleyBall</option>
+		<option value="BasketBall">BasketBall</option>
+		<option value="kabbadi">Kabbadi</option>
+		<option value="Badmiton">Badmiton</option>
+		<option value="Running">Running</option>
+		<option value="Javellin Throw">Javellin Throw</option>
+		<option value="Shotput">Shotput</option>
+		<option value="Tennis">Tennis</option>
+		</select><br><br>
+		
+		<label>Previous Experience : </label><input type="text" name="experience" maxlength=100 required><br><br>
+		<label>Please attach corresponding file</label><br> <br>
+		<div>
+		<label>Passport Size Photo : </label><input type="file" name="file1" accept="image/png" required><br><br>
+		<label>Aadhaar Original : </label><input type="file" name="file2" accept="image/png" required><br><br>
+		<label>Highest Level Certificate : </label><input type="file" name="file3" accept="image/png" required><br><br>
+		<input type="hidden" value="inactive" name="status">
+		<input type="submit" onclick="onClick()" class="button" value="Register"/></div>
+		<center>
+	</form>
+	<script th:inline="javascript">
+		function onClick()
+		{
+			/*<![CDATA[*/		
+				alert("Hello,\nRegistration Complete Sucessfully");
+			
+			/*]]>*/
+		}
+	</script>
+</bodys>
+</html>
