@@ -6,7 +6,7 @@
 
 All the two modules consist of many sub modules they are
 
-##ADMIN MODULE
+## ADMIN MODULE
 
 Admin The admin Module consists of some of sub modules such as 
   1) Login 
@@ -14,18 +14,18 @@ Admin The admin Module consists of some of sub modules such as
   3) Manage Sports Team 
   4) Add Events 
   5) Add Winners 
-• Login 
-  At first the admin needs to login himself to access his account 
+• Login
+   - At first the admin needs to login himself to access his account 
 • Manage students Request 
-  In this module the admin going to accept or reject the students requests to join in the sports team.
+   - In this module the admin going to accept or reject the students requests to join in the sports team.
 • Manage Sports Team
-  In this module the admin going to manage the selected students in the sports team such as (Hockey, Football, Volleyball etc) 
+   - In this module the admin going to manage the selected students in the sports team such as (Hockey, Football, Volleyball etc) 
 • Add Events 
-  In this Module the admin needs to add the details about the upcoming events, some the details such as event place, category etc 
+   - In this Module the admin needs to add the details about the upcoming events, some the details such as event place, category etc 
 • Add Winners 
-  In this module the admin will announce the winners of the completed event.
+  - In this module the admin will announce the winners of the completed event.
   
-##USER MODULE
+## USER MODULE
 
 The user module consists of some of the sub modules such as 
   1) Registration 
