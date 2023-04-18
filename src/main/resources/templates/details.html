@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 50%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+</head>
+<body>
+<center>
+<h2>Student Details</h2>
+</center>
+<center>
+<div class="card">
+  <img src="img.png" alt="Avatar" style="width:80%">
+  <div class="container">
+    <center>
+	<h4><b>Name: <?php echo $name;?></b></h4> 
+    <b>Age: <?php echo $age;?></b> 
+    <h4><p>DOB: <?php echo $dob;?></p></h4>
+    <b>Contact: <?php echo $contact;?></b> 
+    <h4><p>Register No: <?php echo $register;?></p></h4>
+    <b>Degree: <?php echo $degree;?></b>
+	<h4><p>Year: <?php echo $year;?></p></h4>
+    <b>Section: <?php echo $section;?></b>
+    <h4><p>Game: <?php echo $game;?></p></h4>
+    <b>Status: <?php echo $status;?></b><br><br>
+	  <form method="GET" action="/details">
+	  <button type="submit" name="back" class="registerbtn">Back</button>
+ <br><br></form>
+  </center>
+  </div>
+</div>
+</center>
+<br><br></body>
+</html> 
