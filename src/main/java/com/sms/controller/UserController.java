@@ -34,11 +34,11 @@ public class UserController
 	}
 	
 	@RequestMapping("/userHome")
-    public String userHome()
-    {
+        public String userHome()
+        {
 		if(k==0) return "redirect:/user";
-    	return "userhome.html";
-    }
+    		return "userhome.html";
+       }
 	@RequestMapping("/userLogin" )
 	public String userLogin(@RequestParam("id")Long id,@RequestParam("psw")Long password,Model model)
 	{
