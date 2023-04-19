@@ -2,7 +2,7 @@
 
 ## There are two main modules are present in our project they are,
   1) Admin (Sports Staff) 
-  2) Students (User) 
+  2) Use (Students) 
 
 All the two modules consist of many sub modules they are
 
