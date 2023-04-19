@@ -13,17 +13,18 @@ import javax.persistence.Transient;
 public class WinnerPanel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	@Transient
 	private String fileType;
-
-	public String getFileType() {
-		return fileType;
-	}
-
-	public void setFileType(String fileType) {
-		this.fileType = fileType;
-	}
+	private String game;
+	private String category;
+	private String prize;
+	private String location;
+	private Date date;
+	private String info;
+	@Lob
+	private byte[] photo;
+	private String fileName;
 
 	public WinnerPanel() {}
 
@@ -40,6 +41,14 @@ public class WinnerPanel {
 		this.photo = bytes;
 	}
 
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -96,14 +105,6 @@ public class WinnerPanel {
 		this.info = info;
 	}
 
-	String game;
-	String category;
-	String prize;
-	String location;
-	Date date;
-	String info;
-	@Lob
-	byte[] photo;
 
 	public byte[] getPhoto() {
 		return photo;
@@ -112,8 +113,6 @@ public class WinnerPanel {
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-
-	String fileName;
 
 	public String getFileName() {
 		return fileName;
