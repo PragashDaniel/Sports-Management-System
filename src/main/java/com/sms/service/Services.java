@@ -20,17 +20,16 @@ public interface Services
     
     public void changeStatus(Long id);
 
-	List<Users> getAllSelectedPlayers(String keyword);
+    public List<Users> getAllSelectedPlayers(String keyword);
 
-	List<Users> getAllActive();
+    public List<Users> getAllActive();
 
-	public List<Events> getAllSelectedEvents(String keyword);
+    public List<Events> getAllSelectedEvents(String keyword);
 
-	public List<WinnerPanel> getAllWinners(String keyword);
+    public List<WinnerPanel> getAllWinners(String keyword);
+ 
+    public Events getEvent(Long Id) throws Exception;
 
-	public Events getEvent(Long Id) throws Exception;
-
-	public WinnerPanel saveWinner(WinnerPanel wp, MultipartFile file) throws Exception;
-
+    public WinnerPanel saveWinner(WinnerPanel wp, MultipartFile file) throws Exception;
   
 }
