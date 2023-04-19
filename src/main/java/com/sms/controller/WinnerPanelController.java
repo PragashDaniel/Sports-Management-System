@@ -21,69 +21,69 @@ import com.project.sms.service.Services;
 @Controller
 public class WinnerPanelController 
 {
-	@Autowired
-	WinnerPanelRepo winnerRepo;
-	
-	@Autowired
-	Services service;
-	
-	AdminLoginController obj=new AdminLoginController();
-	@RequestMapping("/winnerpanel")
-	public String winnerPanel()
-	{
+	    @Autowired
+	    WinnerPanelRepo winnerRepo;
+
+	    @Autowired
+	    Services service;
+
+	    AdminLoginController obj=new AdminLoginController();
+	    @RequestMapping("/winnerpanel")
+	    public String winnerPanel()
+            {
 		if(obj.k==0) return "adminLogin.html";
 		return "adminAddWinners";
-	}
+	    }
 
-	
-	@RequestMapping("/managewinnerpanel")
-    public String getAll(Model model)
-    {
+
+	     @RequestMapping("/managewinnerpanel")
+	     public String getAll(Model model)
+	     {
 		if(obj.k==0) return "adminLogin.html";
-    	model.addAttribute("student",winnerRepo.findAll());
-    	return "managewinnerpanel";
-    }
-    
-    @RequestMapping("/filterwinners")
-	public String filterActive(Model model,@RequestParam("keyword") String keyword)
-	{
-    	if(keyword.equals("All")) return "redirect:/managewinnerpanel";
-    	List<WinnerPanel> list=service.getAllWinners(keyword);
-    	model.addAttribute("student", list);
+		model.addAttribute("student",winnerRepo.findAll());
 		return "managewinnerpanel";
-	}
-    
-    @RequestMapping("/updatewinner/{id}")
-    public String update(@PathVariable long id)
-    {
-    	winnerRepo.deleteById(id);
-    	return "adminAddWinners";
-    }
-    
-    @RequestMapping("/deletewinner/{id}")
-    public String delete(@PathVariable long id)
-    {
-    	winnerRepo.deleteById(id);
-    	return "redirect:/managewinnerpanel";
-    }
-    
-    @RequestMapping("/winnerpaneldetails")
-    public String addWinner(WinnerPanel winner,@RequestParam("file1")MultipartFile file) throws Exception
-    {
-    	WinnerPanel wp=service.saveWinner(winner,file);
-        ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/download/event/")
-                .path(wp.getId().toString());
-    	return "adminAddWinners";
-    }
-    @RequestMapping(value="download/winner/{id}")
-    public void formDataAsResEntity(@PathVariable("id") Long id,HttpServletResponse response) throws IOException
-    {
-    	java.util.Optional<WinnerPanel> addE=winnerRepo.findById(id);
-    	if(addE.isPresent())
-    	{
-    		byte[] image=addE.get().getPhoto();
-    		StreamUtils.copy(image,response.getOutputStream());
-    	}
-    }
+	     }
+
+	     @RequestMapping("/filterwinners")
+	     public String filterActive(Model model,@RequestParam("keyword") String keyword)
+	     {
+	 	if(keyword.equals("All")) return "redirect:/managewinnerpanel";
+		List<WinnerPanel> list=service.getAllWinners(keyword);
+		model.addAttribute("student", list);
+			return "managewinnerpanel";
+	     }
+
+	    @RequestMapping("/updatewinner/{id}")
+	    public String update(@PathVariable long id)
+	    {
+		winnerRepo.deleteById(id);
+		return "adminAddWinners";
+	    }
+
+	    @RequestMapping("/deletewinner/{id}")
+	    public String delete(@PathVariable long id)
+	    {
+		winnerRepo.deleteById(id);
+		return "redirect:/managewinnerpanel";
+	    }
+
+	    @RequestMapping("/winnerpaneldetails")
+	    public String addWinner(WinnerPanel winner,@RequestParam("file1")MultipartFile file) throws Exception
+	    {
+		WinnerPanel wp=service.saveWinner(winner,file);
+		ServletUriComponentsBuilder.fromCurrentContextPath()
+			.path("/download/event/")
+			.path(wp.getId().toString());
+		return "adminAddWinners";
+	    }
+	    @RequestMapping(value="download/winner/{id}")
+	    public void formDataAsResEntity(@PathVariable("id") Long id,HttpServletResponse response) throws IOException
+	    {
+		java.util.Optional<WinnerPanel> addE=winnerRepo.findById(id);
+		if(addE.isPresent())
+		{
+			byte[] image=addE.get().getPhoto();
+			StreamUtils.copy(image,response.getOutputStream());
+		}
+	    }
 }
