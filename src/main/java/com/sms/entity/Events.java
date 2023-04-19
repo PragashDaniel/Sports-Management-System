@@ -15,6 +15,18 @@ public class Events
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long meetid;
+	String game;
+	String category;
+	Date startdate;
+	Date enddate;
+	@Lob
+	byte[] event;
+	String location;
+	String other;
+	String fileName;
+	@Transient
+    	private String fileType;
+	
 	public Events(Events addEvents, String fileName, String contentType, byte[] bytes) 
 	{
 		this.setMeetid(addEvents.meetid);
@@ -29,10 +41,7 @@ public class Events
 		this.event=bytes;
 		
 	}
-	
 	public Events() {}
-	@Transient
-    private String fileType;
 	public String getFileType() {
 		return fileType;
 	}
@@ -81,21 +90,12 @@ public class Events
 	public void setOther(String other) {
 		this.other = other;
 	}
-	String game;
-	String category;
-	Date startdate;
-	Date enddate;
-	@Lob
-	byte[] event;
 	public byte[] getEvent() {
 		return event;
 	}
 	public void setEvent(byte[] event) {
 		this.event = event;
 	}
-	String location;
-	String other;
-	String fileName;
 	public String getFileName() {
 		return fileName;
 	}
